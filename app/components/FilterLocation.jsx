@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ResultsItems from "./ResultsItems";
 import { findLocation } from "@/src/api/location.api";
 
-const FilterLocation = ({onSelected}) => {
+const FilterLocation = ({ onSelected }) => {
   const [locations, setLocations] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const refSearch = useRef(null);

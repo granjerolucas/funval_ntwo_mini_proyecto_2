@@ -14,7 +14,7 @@ const CardCurrentTime = ({ data, city }) => {
   }
   return (
     <div
-      class={`blockx w-full min-w-[26rem] p-6 bg-white border border-gray-200 rounded-lg shadow  dark:bg-slate-700 dark:border-gray-700  h-[26rem] flex flex-col gap-4 justify-center relative ${bg}`}
+      class={`blockx w-full md:min-w-[26rem] p-6 bg-white border border-gray-200 rounded-lg shadow  dark:bg-slate-700 dark:border-gray-700  h-[26rem] flex flex-col gap-4 justify-center relative ${bg}`}
       style={{ backgroundBlendMode: "overlay", backgroundImage: bimage }}
     >
       {data == undefined && <Skeleton />}

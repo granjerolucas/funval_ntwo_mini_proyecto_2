@@ -42,7 +42,7 @@ const HomePage = () => {
   };
   const handleConvert = (e) => {
     e.preventDefault();
-    setConvertion(e.target.value);
+    setConvertion(e.currentTarget.value);
   };
   useEffect(() => {
     getLocationByDefault().then((res) => {
@@ -58,7 +58,7 @@ const HomePage = () => {
     });
   }, []);
   return (
-    <div className="container mx-auto  py-10 px-4 flex flex-col gap-8">
+    <div className="container mx-auto  py-10 px-4 flex flex-col gap-8x">
       <h1 className="text-4xl text-white text-center font-bold">Weather App</h1>
       <FilterLocation onSelected={handleSelected} />
       <div className="grid grid-cols-1 md:grid-cols-[4fr,7fr] gap-4 items-start">
@@ -68,22 +68,28 @@ const HomePage = () => {
           <div className="text-right my-4">
             <button
               type="button"
-              className="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white px-3 text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 group"
               value={"celsius"}
               onClick={handleConvert}
             >
-              °C
+              <span className="group-hover:hidden">°C</span>
+              <span className="overflow-hidden w-0 transition-all duration-300 ease-in-out group-hover:block group-hover:w-[8rem]">
+                Celsius
+              </span>
             </button>
             <button
               type="button"
-              className="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white px-3 text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 group"
               value={"fahrenheit"}
               onClick={handleConvert}
             >
-              °F
+              <span className="group-hover:hidden">°F</span>
+              <span className="overflow-hidden w-0 transition-all duration-300 ease-in-out group-hover:block group-hover:w-[8rem]">
+                Fahrenheit
+              </span>
             </button>
           </div>
-          <div className="columns-5 justify-center">
+          <div className="grid grid-cols-2 gap-4  md:columns-5 justify-center"> 
             {daily.map((item, index) => (
               <CardFutureTime
                 data={item}
@@ -95,7 +101,7 @@ const HomePage = () => {
         </div>
       </div>
       <h2 className="text-2xl font-semibold text-white">{`Today's Highlights`}</h2>
-      <div className="columns-4 ">
+      <div className="grid grid-cols-2 gap-4 md:columns-4 ">
         {[
           {
             type: "wind",
