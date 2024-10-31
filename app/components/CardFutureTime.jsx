@@ -10,7 +10,6 @@ import Skeleton from "./Skeleton";
  * @returns
  */
 const CardFutureTime = ({ data, day = dayjs() }) => {
-  console.log("aguita", dayjs().get("day"), data);
 
   return (
     <div className="mb-4 bg-white border  border-gray-200 rounded-lg shadow dark:bg-slate-700 dark:border-gray-700 h-[18rem]">
@@ -34,10 +33,10 @@ const CardFutureTime = ({ data, day = dayjs() }) => {
             </div>
             <div className="flex flex-col  gap-y-0 text-center justify-between w-full">
               <span className="text-2xl text-center text-white">
-                {data.temp.max}°C
+                {Math.round(data.temp.max)}°C
               </span>
               <span className="text-2xl text-center text-gray-500">
-                {data.temp.min}°C
+                {Math.round(data.temp.min)}°C
               </span>
             </div>
           </>

@@ -9,7 +9,6 @@ const FilterLocation = ({onSelected}) => {
   const refSearch = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit", locations);
     findLocation(refSearch.current.value).then((res) => {
       setLocations(res);
       setShowModal(true);

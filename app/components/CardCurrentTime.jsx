@@ -14,14 +14,14 @@ const CardCurrentTime = ({ data, city }) => {
   }
   return (
     <div
-      class={`blockx w-full p-6 bg-white border border-gray-200 rounded-lg shadow  dark:bg-slate-700 dark:border-gray-700  h-[26rem] flex flex-col gap-4 justify-center relative ${bg}`}
+      class={`blockx w-full min-w-[26rem] p-6 bg-white border border-gray-200 rounded-lg shadow  dark:bg-slate-700 dark:border-gray-700  h-[26rem] flex flex-col gap-4 justify-center relative ${bg}`}
       style={{ backgroundBlendMode: "overlay", backgroundImage: bimage }}
     >
       {data == undefined && <Skeleton />}
       {data && (
         <>
           <h5 className=" text-[4rem] font-bold tracking-tight text-gray-900 dark:text-white text-center">
-            {data.current.temp}°C
+            {Math.round(data.current.temp)}°C
           </h5>
           <Image
             src={`/assets/img/weather/${data.current.weather[0].icon}.png`}

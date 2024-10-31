@@ -16,18 +16,18 @@ const HomePage = () => {
     units: "imperial",
     city: "",
   });
+  const [convertion, setConvertion] = useState("fahrenheit");
   const { data: weatherFilter } = useWeatherFilter(
     search.lat,
     search.lon,
     search.exclude,
-    search.units
+    search.units,
+    convertion
   );
-  console.log("weatherFilter", weatherFilter);
 
   let daily = [null, null, null, null, null];
   if (weatherFilter) {
     daily = weatherFilter.daily.slice(0, 5);
-    console.log("weatherFilter daily", daily);
   }
 
   const handleSelected = (item) => {
@@ -40,9 +40,11 @@ const HomePage = () => {
       };
     });
   };
-
+  const handleConvert = (e) => {
+    e.preventDefault();
+    setConvertion(e.target.value);
+  };
   useEffect(() => {
-    console.log("weatherFilter", weatherFilter);
     getLocationByDefault().then((res) => {
       const [lat, lon] = res.loc.split(",");
 
@@ -67,12 +69,16 @@ const HomePage = () => {
             <button
               type="button"
               className="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              value={"celsius"}
+              onClick={handleConvert}
             >
               °C
             </button>
             <button
               type="button"
               className="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              value={"fahrenheit"}
+              onClick={handleConvert}
             >
               °F
             </button>
