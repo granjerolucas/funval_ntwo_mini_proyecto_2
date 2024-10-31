@@ -2,7 +2,7 @@ import React from "react";
 
 const FilterLocation = () => {
   return (
-    <form class="max-w-md mx-auto my-10">
+    <form class="max-w-lg w-full mx-auto my-10">
       <label
         for="default-search"
         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
