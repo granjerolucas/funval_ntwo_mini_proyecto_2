@@ -89,7 +89,7 @@ const HomePage = () => {
               </span>
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-4  md:columns-5 justify-center"> 
+          <div className="grid grid-cols-2 gap-4 md:block  md:columns-5 justify-center"> 
             {daily.map((item, index) => (
               <CardFutureTime
                 data={item}
@@ -100,8 +100,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-2xl font-semibold text-white">{`Today's Highlights`}</h2>
-      <div className="grid grid-cols-2 gap-4 md:columns-4 ">
+      <h2 className="text-2xl font-semibold text-white my-10">{`Today's Highlights`}</h2>
+      <div className="grid grid-cols-2 gap-4 md:block md:columns-4 ">
         {[
           {
             type: "wind",
