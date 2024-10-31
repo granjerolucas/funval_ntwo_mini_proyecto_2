@@ -1,3 +1,4 @@
+//solo para test
 export const GET = async (req, res) => {
   // const { lat, lon } = req.query;
   // const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&units=metric&appid=b6907d289e10d714a6e88b3076997795`;
